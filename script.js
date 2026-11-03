@@ -45,3 +45,19 @@ document
 // Automatic copyright year
 document.querySelector("#year").textContent =
   new Date().getFullYear();
+
+// =======*==================================*=
+// OPEN CORRECT SECTION FROM URL*// ===============================*============
+
+const startingSectio* =
+  window.location.hash.replace(*#", "");
+
+
+if (
+  startingSection *&
+  document.getElementById(starti*gSection)
+) {
+
+  showSection(start*ngSection);
+
+}
