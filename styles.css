@@ -929,3 +929,103 @@ footer small {
   }
 
 }
+
+/* ============================================
+   ONE-PAGE / TAB NAVIGATION
+============================================ */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+/* HEADER ALWAYS VISIBLE */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+}
+
+
+/* MAIN AREA */
+
+main {
+  height: 100vh;
+  padding-top: 70px;
+  overflow: hidden;
+}
+
+
+/* EACH MAIN SECTION */
+
+main > section.section {
+  display: none;
+
+  width: 100%;
+  max-width: none;
+
+  height: calc(100vh - 70px);
+
+  margin: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-top: 70px;
+
+  animation: sectionFade 0.4s ease;
+}
+
+
+/* ONLY SELECTED SECTION APPEARS */
+
+main > section.section.active-section {
+  display: block;
+}
+
+
+/* FADE EFFECT */
+
+@keyframes sectionFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ACTIVE NAVIGATION TAB */
+
+nav a.active-nav {
+  color: var(--coral);
+}
+
+
+/* OPTIONAL SCROLLBAR */
+
+main > section.section::-webkit-scrollbar {
+  width: 7px;
+}
+
+main > section.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main > section.section::-webkit-scrollbar-thumb {
+  background: rgba(23, 23, 23, 0.35);
+  border-radius: 20px;
+}
