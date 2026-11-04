@@ -54,11 +54,12 @@ a {
   position: sticky;
   top: 0;
 
-  z-index: 20;
+  z-index: 1000;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;   
 
   padding:
     18px
@@ -85,44 +86,29 @@ a {
 /* ============================================
    NAVIGATION
 ============================================ */
+<nav id="nav">
 
-nav {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
+  <a href="#home">
+    The Story
+  </a>
 
-nav a {
-  font-size: 0.85rem;
-  font-weight: 700;
+  <a href="#experience">
+    Impact Archive
+  </a>
 
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
+  <a href="#creatives">
+    Creative Lab
+  </a>
 
-nav a:hover {
-  opacity: 0.65;
-  transform: translateY(-1px);
-}
+  <a href="#commerce">
+    Commerce Desk
+  </a>
 
-.nav-cta {
-  padding: 9px 16px;
+  <a href="#services">
+    Work With Me
+  </a>
 
-  background: var(--ink);
-  color: white;
-
-  border-radius: 99px;
-}
-
-.nav-cta:hover {
-  opacity: 1;
-  background: var(--coral);
-}
-
-.menu {
-  display: none;
-}
+</nav>
 
 
 /* ============================================
@@ -859,13 +845,6 @@ footer small {
    ONE-PAGE / TAB NAVIGATION
 ============================================ */
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-}
-
 
 /* HEADER ALWAYS VISIBLE */
 
@@ -878,14 +857,6 @@ body {
   z-index: 1000;
 }
 
-
-/* MAIN AREA */
-
-main {
-  height: 100vh;
-  padding-top: 70px;
-  overflow: hidden;
-}
 
 
 /* EACH MAIN SECTION */
@@ -900,21 +871,10 @@ main > section.section {
 
   margin: 0;
 
-  overflow-y: auto;
-  overflow-x: hidden;
-
   padding-top: 70px;
 
   animation: sectionFade 0.4s ease;
 }
-
-
-/* ONLY SELECTED SECTION APPEARS */
-
-main > section.section.active-section {
-  display: block;
-}
-
 
 /* FADE EFFECT */
 
@@ -953,4 +913,59 @@ main > section.section::-webkit-scrollbar-track {
 main > section.section::-webkit-scrollbar-thumb {
   background: rgba(23, 23, 23, 0.35);
   border-radius: 20px;
+}
+
+/* ============================================
+   NORMAL ONE-PAGE SCROLLING
+============================================ */
+
+html {
+  scroll-behavior: smooth;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+body {
+  min-height: 100%;
+  height: auto;
+
+  margin: 0;
+
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+
+main {
+  width: 100%;
+
+  height: auto;
+  min-height: 100vh;
+
+  overflow: visible;
+}
+
+
+/* ALL SECTIONS REMAIN VISIBLE */
+
+main > section {
+  display: block;
+
+  height: auto;
+  min-height: auto;
+
+  overflow: visible;
+}
+
+
+/* Prevent sticky header from covering section titles */
+
+#home,
+#experience,
+#creatives,
+#commerce,
+#services {
+  scroll-margin-top: 110px;
 }
