@@ -86,30 +86,38 @@ a {
 /* ============================================
    NAVIGATION
 ============================================ */
-<nav id="nav">
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-  <a href="#home">
-    The Story
-  </a>
+#nav a {
+  font-size: 0.85rem;
+  font-weight: 700;
 
-  <a href="#experience">
-    Impact Archive
-  </a>
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
 
-  <a href="#creatives">
-    Creative Lab
-  </a>
+#nav a:hover {
+  color: var(--coral);
+  transform: translateY(-2px);
+}
 
-  <a href="#commerce">
-    Commerce Desk
-  </a>
+.nav-cta {
+  padding: 9px 16px;
 
-  <a href="#services">
-    Work With Me
-  </a>
+  background: var(--ink);
+  color: var(--white);
 
-</nav>
+  border-radius: 99px;
+}
 
+.menu {
+  display: none;
+}
 
 /* ============================================
    DEFAULT SECTION
@@ -704,7 +712,7 @@ footer small {
 
 @media (max-width: 800px) {
 
-  nav {
+  #nav {
     display: none;
 
     position: absolute;
@@ -729,7 +737,7 @@ footer small {
   }
 
 
-  nav.open {
+  #nav.open {
     display: flex;
   }
 
@@ -839,82 +847,6 @@ footer small {
     height: 260px;
   }
 
-}
-
-/* ============================================
-   ONE-PAGE / TAB NAVIGATION
-============================================ */
-
-
-/* HEADER ALWAYS VISIBLE */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1000;
-}
-
-
-
-/* EACH MAIN SECTION */
-
-main > section.section {
-  display: none;
-
-  width: 100%;
-  max-width: none;
-
-  height: calc(100vh - 70px);
-
-  margin: 0;
-
-  padding-top: 70px;
-
-  animation: sectionFade 0.4s ease;
-}
-
-/* FADE EFFECT */
-
-@keyframes sectionFade {
-
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-
-/* ACTIVE NAVIGATION TAB */
-
-nav a.active-nav {
-  color: var(--coral);
-}
-
-
-/* OPTIONAL SCROLLBAR */
-
-main > section.section::-webkit-scrollbar {
-  width: 7px;
-}
-
-main > section.section::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-main > section.section::-webkit-scrollbar-thumb {
-  background: rgba(23, 23, 23, 0.35);
-  border-radius: 20px;
-}
-
 /* ============================================
    NORMAL ONE-PAGE SCROLLING
 ============================================ */
@@ -969,3 +901,66 @@ main > section {
 #services {
   scroll-margin-top: 110px;
 }
+
+/* ============================================
+NORMAL ONE-PAGE SCROLLING
+============================================ */
+ 
+html {
+scroll-behavior: smooth;
+ 
+height: auto;
+ 
+overflow-x: hidden;
+overflow-y: auto;
+}
+ 
+ 
+body {
+width: 100%;
+ 
+min-height: 100vh;
+height: auto;
+ 
+margin: 0;
+ 
+overflow-x: hidden;
+overflow-y: visible;
+ 
+background: var(--paper);
+color: var(--ink);
+}
+ 
+ 
+main {
+width: 100%;
+ 
+height: auto;
+min-height: 0;
+ 
+overflow: visible;
+}
+ 
+ 
+/* All portfolio sections remain visible */
+ 
+main > section {
+display: block;
+ 
+height: auto;
+ 
+overflow: visible;
+}
+ 
+ 
+/* Sticky-header offset */
+ 
+#home,
+#experience,
+#creatives,
+#commerce,
+#services {
+scroll-margin-top: 90px;
+}
+
+
